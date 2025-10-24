@@ -59,7 +59,7 @@ function loadNonCriticalCSS() {
         link.rel = 'stylesheet';
         link.href = css;
         link.media = 'print';
-        link.onload = function() {
+        link.onload = function () {
             this.media = 'all';
         };
         document.head.appendChild(link);
@@ -74,7 +74,7 @@ function optimizeImages() {
         if (!img.hasAttribute('loading')) {
             img.setAttribute('loading', 'lazy');
         }
-        
+
         // Add proper alt attributes if missing
         if (!img.hasAttribute('alt')) {
             img.setAttribute('alt', 'U-Health Product Image');
@@ -113,7 +113,7 @@ function setupErrorTracking() {
             column: e.colno,
             error: e.error
         });
-        
+
         // Send to analytics service if configured
         if (typeof gtag !== 'undefined') {
             gtag('event', 'exception', {
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     optimizeImages();
     setupErrorTracking();
     trackPerformance();
-    
+
     // Load non-critical resources after page load
     window.addEventListener('load', () => {
         preloadCriticalResources();

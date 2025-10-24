@@ -2,7 +2,7 @@
 const CONFIG = {
     // Environment Settings
     ENVIRONMENT: 'production', // 'development' or 'production'
-    
+
     // Site Settings
     SITE: {
         NAME: 'U-Health',
@@ -12,7 +12,7 @@ const CONFIG = {
         KEYWORDS: 'women\'s health, sanitary pads, tampons, menstrual cups, period calculator',
         AUTHOR: 'U-Health Team'
     },
-    
+
     // Cart Settings
     CART: {
         STORAGE_KEY: 'cart',
@@ -20,20 +20,20 @@ const CONFIG = {
         CURRENCY: '₹',
         FREE_SHIPPING_THRESHOLD: 500
     },
-    
+
     // Payment Settings
     PAYMENT: {
         ACCEPTED_CARDS: ['visa', 'mastercard', 'amex', 'discover'],
         TEST_MODE: false, // Set to true for testing
         CURRENCY: 'INR'
     },
-    
+
     // Analytics (replace with your actual IDs)
     ANALYTICS: {
         GOOGLE_ANALYTICS_ID: 'UA-XXXXXXXXX-X',
         FACEBOOK_PIXEL_ID: 'XXXXXXXXXXXXXXXXX'
     },
-    
+
     // Contact Information
     CONTACT: {
         EMAIL: 'info@u-health.com',
@@ -47,7 +47,7 @@ const CONFIG = {
             COUNTRY: 'India'
         }
     },
-    
+
     // Social Media Links
     SOCIAL: {
         FACEBOOK: 'https://facebook.com/uhealth',
@@ -55,7 +55,7 @@ const CONFIG = {
         TWITTER: 'https://twitter.com/uhealth',
         LINKEDIN: 'https://linkedin.com/company/uhealth'
     },
-    
+
     // API Endpoints (for future use)
     API: {
         BASE_URL: 'https://api.u-health.com/v1',
@@ -63,7 +63,7 @@ const CONFIG = {
         ORDERS: '/orders',
         USERS: '/users'
     },
-    
+
     // Feature Flags
     FEATURES: {
         PERIOD_CALCULATOR: true,
