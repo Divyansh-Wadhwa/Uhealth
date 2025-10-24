@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Calculator</title>
+    <link rel="stylesheet" href="../assets/css/shared-header.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/cal_style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../assets/js/period.js"></script>
+    <script src="../assets/js/cart-shared.js"></script>
+
+
+</head>
+<style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+    }
+
+    header {
+        background-color: #f1c4d4;
+        padding: 20px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    header .logo img {
+        width: 50px;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #ffffff;
+        border-radius: 40px;
+    }
+
+    header .cart-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        color: #fff;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    /* Promo Image Section */
+    .promo-image {
+        text-align: center;
+        height: fit-content;
+    }
+
+    .promo-image img {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+    }
+
+    .period-calculator {
+        padding: 20px;
+        text-align: center;
+        background-color: white;
+    }
+
+    .period-calculator h1 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .period-calculator p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin: 0 auto 40px;
+    }
+
+    .calculator-steps {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 40px;
+    }
+
+    .step_cont {
+        text-align: center;
+        color: #333;
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+    }
+
+    .step {
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+    }
+
+    .step p {
+        margin-bottom: 10px;
+    }
+
+    .step img {
+        height: 70px;
+    }
+
+
+    /* increment or decrement */
+    .step span {
+        cursor: pointer;
+    }
+
+    .step span.num {
+        pointer-events: none;
+        color: #e13f85;
+        font-size: 30px;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .step span.num1 {
+        pointer-events: none;
+        color: #e13f85;
+        font-size: 30px;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+
+    .step-value {
+        color: #f87b9b;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        box-sizing: border-box;
+        gap: 10px;
+        font-size: 30px;
+    }
+
+    footer section {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .content {
+        position: relative;
+        z-index: 1;
+        margin: 0 auto;
+        max-width: 900px;
+        text-align: center;
+    }
+
+    footer section:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #efbed4;
+        border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        transform: scaleX(1.7);
+    }
+
+    footer {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        color: white;
+    }
+
+    footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .side-by-side {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        gap: 20px;
+        /* Space between the divs */
+    }
+
+    .side-by-side>div {
+        flex: 1;
+        padding: 0;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    footer h2,
+    footer h3,
+    footer h4 {
+        margin: 0;
+        padding-bottom: 10px;
+    }
+
+    footer h2 {
+        font-size: 2rem;
+    }
+
+    footer h4 {
+        font-size: 1.25rem;
+    }
+
+    footer h3 {
+        font-size: 1.5rem;
+    }
+
+    footer a {
+        font-size: 1rem;
+        display: block;
+        margin: 5px 0;
+    }
+
+    footer hr {
+        border: none;
+        border-top: 1px solid #fff;
+        margin: 20px 0;
+    }
+
+    @media (max-width: 1200px) {
+        footer h2 {
+            font-size: 1.75rem;
+        }
+
+        footer h4 {
+            font-size: 1.125rem;
+        }
+
+        footer h3 {
+            font-size: 1.25rem;
+        }
+
+        footer a {
+            font-size: 0.875rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        footer h2 {
+            font-size: 1.5rem;
+        }
+
+        footer h4 {
+            font-size: 1rem;
+        }
+
+        footer h3 {
+            font-size: 1.125rem;
+        }
+
+        footer a {
+            font-size: 0.75rem;
+        }
+
+        .side-by-side {
+            flex-direction: column;
+        }
+
+        .side-by-side>div {
+            margin-bottom: 20px;
+        }
+
+        .side-by-side>div:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        footer h2 {
+            font-size: 1.25rem;
+        }
+
+        footer h4 {
+            font-size: 0.875rem;
+        }
+
+        footer h3 {
+            font-size: 1rem;
+        }
+
+        footer a {
+            font-size: 0.75rem;
+        }
+    }
+
+    .step_value img {
+        border-radius: 40px;
+        height: 60px;
+        /* Adjust height to fit within the container */
+        width: auto;
+        /* Keep aspect ratio */
+        display: block;
+    }
+
+    .step_value span {
+        flex-grow: 1;
+        /* Allow text to take up remaining space */
+        text-align: left;
+        /* Align text to the left */
+        font-size: 1rem;
+        /* Set font size, responsive by default */
+    }
+
+    .track-button {
+        position: relative;
+        background: none;
+        color: #f87b9b;
+        border: 1px solid #f87b9b;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-bottom: 40px;
+        transition: color 0.8s;
+        /* Only transition the color property */
+        overflow: hidden;
+        z-index: 1;
+        /* Ensure this is above the ::before pseudo-element */
+    }
+
+    .track-button:hover {
+        color: #fff;
+    }
+
+    .track-button::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 0;
+        background: #f87b9b;
+        z-index: -1;
+        /* Ensure this is behind the button content */
+        transition: height 0.8s;
+        /* Only transition the height property */
+        border-radius: 0 0 50% 50%;
+    }
+
+    .track-button:hover::before {
+        height: 180%;
+        /* Adjusted height to ensure a smooth transition effect */
+    }
+
+    .calendar-preview {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 40px;
+    }
+
+    .calendar-month {
+        text-align: center;
+    }
+
+    .calendar-month h2 {
+        font-size: 20px;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .calendar-month img {
+        width: 200px;
+        height: auto;
+    }
+</style>
+
+<body>
+    <!-- Header Section -->
+    <header class="header-content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a class="navbar-brand" href="../index.html"><img src="../assets/images/logo.png" alt="Logo"
+                        width="55"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-pink font-weight-bold" href="../index.html">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-pink font-weight-bold" href="product.html">PRODUCTS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-pink font-weight-bold" href="period_cal.html">PERIOD CALCULATOR</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                      <a class="nav-link text-pink font-weight-bold" href="chat.html">CONTACT</a>
+                  </li> -->
+                    </ul>
+                </div>
+                <div class="cart-icon" onclick="redirectToCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Added Image Section -->
+    <section class="promo-image">
+        <img src="../assets/images/period1.png" alt="Period Awareness">
+    </section>
+
+    <!-- Period Calculator Section -->
+    <section class="period-calculator">
+        <h1>Period Calculator</h1>
+        <p>
+            Wondering, “When will I get my period?” Always knows! Our easy tracking tool, the Period Calculator, helps
+            to map out your cycle for months. Plan a period-free beach trip or a big event like a wedding using the
+            period cycle calculator. Or track your fertility time if you’re trying using the menstrual cycle calculator.
+            Ready? You’re three quick questions away from getting your custom menstrual cycle calculator.
+        </p>
+        <div class="step_cont">
+            <p>1. How long does your period last?</p>
+            <p>2. When did your period start?</p>
+            <p>3. How long is your cycle?</p>
+        </div>
+
+        <div class="calculator-steps">
+            <div class="step">
+                <span class="plus" onclick="adjustValue('periodDuration', 1)"><img
+                        src="../assets/images/period_last1.png" alt="increase"></span>
+                <span class="step-value" id="periodDuration">1</span>
+                <span class="minus" onclick="adjustValue('periodDuration', -1)"><img
+                        src="../assets/images/period_last2.png" alt="decrease"></span>
+            </div>
+
+            <div class="date-container">
+                <input type="text" id="periodStartDate" placeholder="Select date">
+            </div>
+
+            <div class="step">
+                <span class="plus1" onclick="adjustValue('cycleLength', 1)"><img src="../assets/images/period_last1.png"
+                        alt="increase"></span>
+                <span class="step-value" id="cycleLength">28</span>
+                <span class="minus1" onclick="adjustValue('cycleLength', -1)"><img
+                        src="../assets/images/period_last2.png" alt="decrease"></span>
+            </div>
+        </div>
+
+        <button class="track-button" onclick="trackPeriod()">Calculate Next Period</button>
+
+        <div id="result"></div>
+
+        <!-- Calendar Preview -->
+        <div class="calendar-preview">
+            <div class="calendar-month">
+                <h2>January</h2>
+                <img src="../assets/images/cal1.png" alt="January Calendar">
+            </div>
+            <div class="calendar-month">
+                <h2>February</h2>
+                <img src="../assets/images/cal2.png" alt="February Calendar">
+            </div>
+            <div class="calendar-month">
+                <h2>March</h2>
+                <img src="../assets/images/cal3.png" alt="March Calendar">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <section>
+            <div class="section">
+                <div class="content">
+                    <h2>Always Bin, Don't Flush</h2>
+                    <h4>Connect with Us</h4>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-pinterest"></a>
+                    <a href="#" class="fa fa-snapchat-ghost"></a>
+                    <hr>
+
+                    <div class="side-by-side">
+                        <div>
+                            <h4>Our Products</h4>
+                            <a href="">Sanitary Pads</a><br>
+                            <a href="">Tampons</a><br>
+                            <a href="">Menstrual Cups & Discs</a><br>
+                            <a href="">Other Related Items</a><br>
+                        </div>
+                        <div>
+                            <h4>Popular Reads</h4>
+                            <a href="">Period Tips</a><br>
+                            <a href="">Cramps, Irregular Periods, and PMS</a><br>
+                            <a href="">PCOS</a><br>
+                            <a href="">Vaginal Discharge</a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <h3>Period Calculator</h3>
+                            </a>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <h4>All images are used for illustrative purposes only</h4>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <!-- JavaScript Section -->
+    <script>
+        // First counter (a: range 1 to 10)
+        const plus = document.querySelector(".plus"),
+            num = document.querySelector(".num"),
+            minus = document.querySelector(".minus");
+        let a = 1;
+
+        plus.addEventListener("click", () => {
+            if (a < 10) {
+                a++;
+            }
+            num.innerText = a;
+            console.log(a);
+        });
+
+        minus.addEventListener("click", () => {
+            if (a > 1) {
+                a--;
+            }
+            num.innerText = a;
+            console.log(a);
+        });
+        // Second counter (b: range 20 to 35)
+        const plus1 = document.querySelector(".plus1"),
+            num1 = document.querySelector(".num1"),
+            minus1 = document.querySelector(".minus1");
+        let b = 27;
+
+        plus1.addEventListener("click", () => {
+            if (b < 35) {
+                b++;
+            }
+            num1.innerText = b;
+            console.log(b);
+        });
+
+        minus1.addEventListener("click", () => {
+            if (b > 20) {
+                b--;
+            }
+            num1.innerText = b;
+            console.log(b);
+        });
+
+
+        // Initialize the flatpickr date picker
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr('#periodStartDate', {
+                dateFormat: "d m Y",  // day month year
+                onChange: function (selectedDates, dateStr, instance) {
+                    console.log("Selected date:", dateStr);
+                }
+            });
+        });
+
+        // Function to calculate the end date of the current period and the start date of the next period
+        function calculateNextPeriod(periodDuration, periodStartDate, cycleLength) {
+            // Convert periodStartDate to a Date object
+            let startDate = new Date(periodStartDate);
+
+            // Calculate the end date of the current period
+            let endDate = new Date(startDate);
+            endDate.setDate(startDate.getDate() + periodDuration - 1);
+
+            // Calculate the start date of the next period
+            let nextPeriodStartDate = new Date(startDate);
+            nextPeriodStartDate.setDate(startDate.getDate() + cycleLength);
+
+            return {
+                periodEndDate: endDate.toISOString().split('T')[0],
+                nextPeriodStartDate: nextPeriodStartDate.toISOString().split('T')[0]
+            };
+        }
+
+        // Function to track and display the period dates
+        function trackPeriod() {
+            const periodDuration = parseInt(document.getElementById('periodDuration').textContent, 10);
+            const periodStartDate = document.getElementById('periodStartDate').value;
+            const cycleLength = parseInt(document.getElementById('cycleLength').textContent, 10);
+
+            if (!periodStartDate) {
+                alert("Please select a start date.");
+                return;
+            }
+
+            // Convert the date from 'd m Y' to 'YYYY-MM-DD' format
+            const dateParts = periodStartDate.split(" ");
+            const formattedDate = `${dateParts[2]}-${dateParts[1].padStart(2, '0')}-${dateParts[0].padStart(2, '0')}`;
+
+            const result = calculateNextPeriod(periodDuration, formattedDate, cycleLength);
+
+            document.getElementById('result').innerHTML =
+                `Your current period ends on: <strong>${result.periodEndDate}</strong><br>
+                Your next period starts on: <strong>${result.nextPeriodStartDate}</strong>`;
+        }
+
+        // Function to adjust the values of period duration and cycle length
+        function adjustValue(id, increment) {
+            const element = document.getElementById(id);
+            let currentValue = parseInt(element.textContent, 10);
+
+            currentValue += increment;
+
+            // Ensure the value does not go below 1 for duration and cycle
+            if (currentValue < 1) {
+                currentValue = 1;
+            }
+
+            element.textContent = currentValue;
+        }
+    </script>
+</body>
+
+
+</html>

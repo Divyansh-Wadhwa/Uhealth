@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | U-Health</title>
+    <link rel="stylesheet" href="assets/css/shared-header.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo.png">
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 50px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #f04158;
+            margin-bottom: 20px;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .error-description {
+            color: #888;
+            margin-bottom: 40px;
+        }
+        .btn-home {
+            background-color: #f04158;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .btn-home:hover {
+            background-color: #e03347;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white">
+          <div class="container d-flex justify-content-between align-items-center">
+              <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="Logo" width="55"></a>
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link text-pink font-weight-bold" href="index.html">HOME</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-pink font-weight-bold" href="pages/product.html">PRODUCTS</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-pink font-weight-bold" href="pages/period_cal.html">PERIOD CALCULATOR</a>
+                  </li>
+              </ul>
+          </div>
+          </div>
+        </nav>
+    </header>
+
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-message">Page Not Found</h1>
+        <p class="error-description">
+            Sorry, the page you are looking for doesn't exist or has been moved.
+        </p>
+        <a href="index.html" class="btn-home">Go Back Home</a>
+    </div>
+
+    <footer style="text-align: center; padding: 20px; margin-top: 50px; color: #666;">
+        <p>&copy; 2025 U-Health. All rights reserved.</p>
+    </footer>
+</body>
+</html>

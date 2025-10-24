@@ -1,0 +1,93 @@
+/* Shared Header Styles for U-Health Website */
+
+/* Consistent Header Styling */
+.header-content {
+    background-color: #efbed4;
+    color: #333;
+    padding: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.navbar {
+    background-color: #efbed4 !important;
+}
+
+.text-pink {
+    color: #f04158 !important;
+}
+
+.navbar-brand img {
+    width: 55px;
+}
+
+/* Cart Icon Styles */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 24px;
+    color: #f04158;
+}
+
+.cart-icon i {
+    font-size: 26px;
+    color: #f04158;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #f04158;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Navigation Styles */
+.nav-link {
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff6b85 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        width: 45px;
+    }
+
+    .cart-icon {
+        font-size: 20px;
+    }
+
+    .cart-icon i {
+        font-size: 22px;
+    }
+
+    .cart-count {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand img {
+        width: 40px;
+    }
+
+    .header-content {
+        padding: 10px 0;
+    }
+}
