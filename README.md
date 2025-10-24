@@ -3,7 +3,8 @@
 ![U-Health Logo](assets/images/logo.png)
 
 **Your trusted source for women's health and wellness products**
-**Test it out live: ** https://divyansh-wadhwa.github.io/Uhealth/
+
+**Test it out live**: https://divyansh-wadhwa.github.io/Uhealth/
 
 ## 🎯 Overview
 
